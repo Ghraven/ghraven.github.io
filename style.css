@@ -458,6 +458,15 @@ code {
   flex: 1;
 }
 
+/* Static stat (no counter animation) */
+.stat-num--static {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
 .stat-num {
   font-family: 'Syne', sans-serif;
   font-size: 2.2rem;
@@ -947,4 +956,239 @@ code {
   .stat-item { width: calc(50% - 8px); }
   .contact-item { padding: 14px 16px; }
   .hero-badge { font-size: 0.72rem; }
+  .oss-repos { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: 1fr; }
+  .contact-email-cta { flex-direction: column; text-align: center; gap: 8px; }
+  .cta-reply { margin-left: 0; }
+}
+
+/* ============================================================
+   CURRENTLY BUILDING
+   ============================================================ */
+.currently-building {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 16px 20px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--card-border);
+  border-left: 3px solid #4ade80;
+  border-radius: 10px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.now-dot {
+  width: 8px; height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.now-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4ade80;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 5px;
+}
+
+.now-text {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   SERVICES / WHAT I BUILD
+   ============================================================ */
+.services-section {
+  background: var(--bg-tertiary);
+  padding: 56px 0;
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.services-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  padding: 28px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  text-align: center;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background var(--transition);
+}
+
+.service-card:hover {
+  border-color: var(--card-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--accent-glow);
+}
+
+.service-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.service-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.service-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   OPEN SOURCE SECTION
+   ============================================================ */
+.oss-section {
+  background: var(--bg-secondary);
+  padding: 72px 0;
+  border-top: 1px solid var(--card-border);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.oss-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.oss-eyebrow {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.oss-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  max-width: 600px;
+}
+
+.oss-sub {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.oss-repos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.oss-repo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  text-align: center;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, background var(--transition);
+}
+
+.oss-repo:hover {
+  border-color: var(--card-border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.oss-repo-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.oss-repo-stars {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ============================================================
+   CONTACT EMAIL CTA
+   ============================================================ */
+.contact-email-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+  padding: 20px 28px;
+  margin-bottom: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.contact-email-cta svg {
+  width: 22px; height: 22px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.contact-email-cta:hover {
+  background: rgba(0, 212, 255, 0.15);
+  box-shadow: 0 6px 28px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.cta-reply {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .oss-repos { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .services-section { padding: 40px 0; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 24px; }
+  .oss-repos { grid-template-columns: repeat(3, 1fr); }
+  .oss-section { padding: 56px 0; }
+  .stat-num--static { font-size: 1.7rem; }
 }
