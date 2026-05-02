@@ -1,5 +1,5 @@
 /* ============================================================
-   CSS VARIABLES â€” DARK (default) & LIGHT
+   CSS VARIABLES — DARK (default) & LIGHT
    ============================================================ */
 :root {
   --bg-primary: #0a0f1e;
@@ -891,7 +891,7 @@ code {
 .back-to-top:hover { color: var(--accent); border-color: var(--accent); box-shadow: 0 4px 20px var(--accent-glow); }
 
 /* ============================================================
-   RESPONSIVE â€” TABLET (â‰¤ 960px)
+   RESPONSIVE — TABLET (≤ 960px)
    ============================================================ */
 @media (max-width: 960px) {
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
@@ -901,7 +901,7 @@ code {
 }
 
 /* ============================================================
-   RESPONSIVE â€” MOBILE (â‰¤ 768px)
+   RESPONSIVE — MOBILE (≤ 768px)
    ============================================================ */
 @media (max-width: 768px) {
   /* Nav */
@@ -946,7 +946,7 @@ code {
 }
 
 /* ============================================================
-   RESPONSIVE â€” SMALL MOBILE (â‰¤ 480px)
+   RESPONSIVE — SMALL MOBILE (≤ 480px)
    ============================================================ */
 @media (max-width: 480px) {
   .avatar-placeholder { width: 130px; height: 130px; font-size: 1.9rem; }
