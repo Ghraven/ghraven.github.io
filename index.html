@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rolly Calma — Python Developer & AI Builder</title>
+  <meta name="description" content="Personal portfolio of Rolly Calma — Python developer, automation builder, and AI tools enthusiast based in the Philippines." />
+
+  <!-- Theme: runs before paint to avoid flash -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-loading">
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">RC<span class="accent">.</span></a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </span>
+          <span class="icon-moon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </span>
+        </button>
+
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Open to opportunities
+      </div>
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Rolly Calma</h1>
+      <div class="hero-tagline-wrap">
+        <span class="hero-tagline" id="typewriter"></span><span class="cursor" aria-hidden="true">|</span>
+      </div>
+      <p class="hero-sub">
+        Building practical tools at the intersection of Python, AI, and automation.<br />
+        Currently expanding into full-stack development.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://github.com/Ghraven" class="btn btn-secondary" target="_blank" rel="noopener">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS STRIP ===================== -->
+  <div class="stats-strip">
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="stat-num" data-target="4">0</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="14">0</span>
+        <span class="stat-label">Utility Modules</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="5">0</span>
+        <span class="stat-label">Languages</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="3">0</span>
+        <span class="stat-label">AI Tools Integrated</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text animate-on-scroll">
+          <p>
+            I'm a self-taught developer based in the Philippines. I started programming to solve real problems — building AI-powered tools, automating repetitive workflows, and experimenting with local LLM setups on my own GPU rig.
+          </p>
+          <p>
+            I work mostly in Python and am actively expanding into full-stack development. I enjoy building things that are actually useful: automation pipelines, utility libraries, and multi-agent AI systems. When I'm not coding, I'm exploring new AI tools or tinkering with new ideas on my local machine.
+          </p>
+          <div class="about-cards">
+            <div class="about-card"><span class="about-card-icon">📍</span><span>Philippines</span></div>
+            <div class="about-card"><span class="about-card-icon">💼</span><span>Developer &amp; Builder</span></div>
+            <div class="about-card"><span class="about-card-icon">🎓</span><span>Self-taught, learning full-stack</span></div>
+            <div class="about-card"><span class="about-card-icon">⚙️</span><span>Python · C# · Docker · Linux</span></div>
+          </div>
+        </div>
+        <div class="about-right animate-on-scroll">
+          <div class="avatar-wrap">
+            <div class="avatar-placeholder">RC</div>
+          </div>
+          <div class="terminal-card">
+            <div class="terminal-bar">
+              <span class="t-dot t-red"></span>
+              <span class="t-dot t-yellow"></span>
+              <span class="t-dot t-green"></span>
+              <span class="t-title">~/about.py</span>
+            </div>
+            <div class="terminal-body">
+              <p><span class="t-kw">name</span> <span class="t-op">=</span> <span class="t-str">"Rolly Calma"</span></p>
+              <p><span class="t-kw">role</span> <span class="t-op">=</span> <span class="t-str">"Python Developer"</span></p>
+              <p><span class="t-kw">focus</span> <span class="t-op">=</span> <span class="t-str">"AI &amp; Automation"</span></p>
+              <p><span class="t-kw">location</span> <span class="t-op">=</span> <span class="t-str">"Philippines 🇵🇭"</span></p>
+              <p><span class="t-kw">status</span> <span class="t-op">=</span> <span class="t-str t-green-text">"open_to_work"</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Skills &amp; Tools</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group animate-on-scroll">
+          <h3 class="skill-group-title">
+            <span class="skill-group-icon">&lt;/&gt;</span> Languages
+          </h3>
+          <div class="badge-list">
+            <span class="badge">🐍 Python</span>
+            <span class="badge">🔷 C#</span>
+            <span class="badge">🌐 JavaScript</span>
+            <span class="badge">🎨 HTML/CSS</span>
+            <span class="badge">🐚 Bash</span>
+          </div>
+        </div>
+
+        <div class="skill-group animate-on-scroll">
+          <h3 class="skill-group-title">
+            <span class="skill-group-icon">🛠</span> Tools &amp; Infrastructure
+          </h3>
+          <div class="badge-list">
+            <span class="badge">🐳 Docker</span>
+            <span class="badge">🐧 Linux</span>
+            <span class="badge">🔀 Git</span>
+            <span class="badge">🎨 Figma</span>
+            <span class="badge">🎬 FFmpeg</span>
+          </div>
+        </div>
+
+        <div class="skill-group animate-on-scroll">
+          <h3 class="skill-group-title">
+            <span class="skill-group-icon">🤖</span> AI / Data
+          </h3>
+          <div class="badge-list">
+            <span class="badge">🦙 Ollama</span>
+            <span class="badge">✦ Claude API</span>
+            <span class="badge">🐼 Pandas</span>
+            <span class="badge">💻 Local LLMs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Projects</h2>
+      <div class="projects-grid">
+
+        <!-- Card 1 — Featured -->
+        <article class="project-card project-card--featured animate-on-scroll">
+          <div class="card-accent-line"></div>
+          <div class="card-header">
+            <div class="card-title-row">
+              <h3 class="card-title">Python Utils Toolkit</h3>
+              <span class="card-badge">14 Modules</span>
+            </div>
+            <a href="https://github.com/Ghraven/python-utils-toolkit" class="card-link" target="_blank" rel="noopener" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-github"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+          <p class="card-desc">A collection of 14 production-ready Python utility modules. Zero external dependencies — pure Python stdlib only. Covers retry logic, rate limiting, structured logging, async helpers, HMAC signing, and more.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pure stdlib</span>
+            <span class="tag">Automation</span>
+            <span class="tag">AI Agents</span>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="project-card animate-on-scroll">
+          <div class="card-accent-line"></div>
+          <div class="card-header">
+            <div class="card-title-row">
+              <h3 class="card-title">Agent Meeting Room</h3>
+            </div>
+            <a href="https://github.com/Ghraven/agent-meeting-room" class="card-link" target="_blank" rel="noopener" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-github"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+          <p class="card-desc">A Flask web app where you <code>@mention</code> AI agents into a live group chat. Mix local Ollama models with the Claude API in the same conversation — run structured debates, free-talk sessions, or multi-model reviews. Includes SSE streaming and Obsidian memory integration.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">Claude API</span>
+            <span class="tag">SSE</span>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="project-card animate-on-scroll">
+          <div class="card-accent-line"></div>
+          <div class="card-header">
+            <div class="card-title-row">
+              <h3 class="card-title">YT Shorts Autopilot</h3>
+            </div>
+            <a href="https://github.com/Ghraven/yt-shorts-autopilot" class="card-link" target="_blank" rel="noopener" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-github"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+          <p class="card-desc">Automated YouTube Shorts upload pipeline for Windows. Drop <code>.mp4</code> files in a queue folder — it processes them with FFmpeg (watermark, audio boost, optional BGM), schedules uploads via the YouTube Data API v3, then moves files to <code>done/</code>. Runs on startup.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FFmpeg</span>
+            <span class="tag">YouTube API v3</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Automation</span>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="project-card animate-on-scroll">
+          <div class="card-accent-line"></div>
+          <div class="card-header">
+            <div class="card-title-row">
+              <h3 class="card-title">API Utilities (Gist)</h3>
+              <span class="card-badge card-badge--gist">Gist</span>
+            </div>
+            <a href="https://gist.github.com/Ghraven/2550f83090b8c6d51964cecf2668786f" class="card-link" target="_blank" rel="noopener" aria-label="View Gist">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-github"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+          <p class="card-desc">Two standalone copy-paste utilities from production code. A thread-safe token-bucket <code>RateLimiter</code> for throttling any API calls and a <code>@retry</code> decorator with exponential backoff + jitter. Pure Python stdlib, zero dependencies.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Rate Limiting</span>
+            <span class="tag">Retry Logic</span>
+            <span class="tag">Pure stdlib</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Get In Touch</h2>
+      <p class="contact-sub animate-on-scroll">
+        I'm always open to interesting projects, collaborations, or just talking tech.<br />
+        The best way to reach me is email.
+      </p>
+      <div class="contact-links animate-on-scroll">
+
+        <a href="mailto:rolly.calma.0217@gmail.com" class="contact-item">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </span>
+          <div>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">rolly.calma.0217@gmail.com</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/rollycalma/" class="contact-item" target="_blank" rel="noopener">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </span>
+          <div>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">rollycalma</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/Ghraven" class="contact-item" target="_blank" rel="noopener">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+          </span>
+          <div>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">Ghraven</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <p>© 2025 Rolly Calma · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
