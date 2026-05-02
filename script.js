@@ -149,7 +149,7 @@ animateEls.forEach(el => animObserver.observe(el));
 /* ============================================================
    STATS COUNTER (count-up on scroll)
    ============================================================ */
-const statNums = document.querySelectorAll('.stat-num');
+const statNums = document.querySelectorAll('.stat-num:not(.stat-num--static)');
 
 function countUp(el) {
   const target = parseInt(el.getAttribute('data-target'), 10);
