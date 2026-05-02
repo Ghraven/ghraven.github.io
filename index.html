@@ -391,14 +391,14 @@
         I'm always open to interesting projects, collaborations, or just talking tech.
       </p>
 
-      <a href="mailto:rolly.calma.0217@gmail.com" class="contact-email-cta animate-on-scroll">
+      <button class="contact-email-cta animate-on-scroll" id="open-contact-modal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
           <polyline points="22,6 12,13 2,6"/>
         </svg>
-        <span>rolly.calma.0217@gmail.com</span>
+        <span>Send me a message</span>
         <span class="cta-reply">Responds within 24h →</span>
-      </a>
+      </button>
 
       <div class="contact-links animate-on-scroll">
 
@@ -444,6 +444,72 @@
       <polyline points="18 15 12 9 6 15"/>
     </svg>
   </button>
+
+  <!-- ===================== CONTACT MODAL ===================== -->
+  <div class="modal-overlay" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+
+      <!-- Default: form state -->
+      <div class="modal-form-state" id="modal-form-state">
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title" id="modal-title">Send a Message</h3>
+            <p class="modal-subtitle">I'll reply to your email within 24h.</p>
+          </div>
+          <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-name">Your Name</label>
+              <input class="form-input" id="f-name" name="name" type="text" placeholder="John Doe" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-email">
+                Your Email
+                <span class="form-error" id="email-error"></span>
+              </label>
+              <input class="form-input" id="f-email" name="email" type="email" placeholder="you@gmail.com" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-subject">Subject</label>
+            <input class="form-input" id="f-subject" name="subject" type="text" placeholder="What's this about?" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-message">Message</label>
+            <textarea class="form-input form-textarea" id="f-message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+          </div>
+          <div class="form-footer">
+            <span class="form-note">rolly.calma.0217@gmail.com</span>
+            <button type="submit" class="btn-send" id="btn-send">
+              <span class="btn-send-label">Send Message</span>
+              <span class="btn-send-spinner" aria-hidden="true"></span>
+              <svg class="btn-send-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success state -->
+      <div class="modal-success-state" id="modal-success-state">
+        <div class="success-animation">
+          <svg class="success-svg" viewBox="0 0 52 52">
+            <circle class="success-circle" cx="26" cy="26" r="24" fill="none"/>
+            <path class="success-tick" d="M14 27 l8 8 l16 -16" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="success-title">Message Sent!</h3>
+        <p class="success-msg">Thanks for reaching out. I'll get back to you within 24h.</p>
+        <button class="btn-close-success" id="btn-close-success">Close</button>
+      </div>
+
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
