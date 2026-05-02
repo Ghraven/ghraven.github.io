@@ -1,5 +1,5 @@
 /* ============================================================
-   CSS VARIABLES — DARK (default) & LIGHT
+   CSS VARIABLES â€” DARK (default) & LIGHT
    ============================================================ */
 :root {
   --bg-primary: #0a0f1e;
@@ -22,22 +22,22 @@
 }
 
 [data-theme="light"] {
-  --bg-primary: #f4f7fb;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #eaeff7;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --accent: #0284c7;
-  --accent-dim: rgba(2, 132, 199, 0.08);
-  --accent-glow: rgba(2, 132, 199, 0.2);
-  --card-bg: #ffffff;
-  --card-border: rgba(2, 132, 199, 0.15);
-  --card-border-hover: rgba(2, 132, 199, 0.45);
-  --nav-bg: rgba(244, 247, 251, 0.9);
-  --badge-bg: rgba(2, 132, 199, 0.06);
-  --badge-border: rgba(2, 132, 199, 0.25);
-  --progress-bg: rgba(2, 132, 199, 0.1);
+  --bg-primary: #cdd8e8;
+  --bg-secondary: #d6e0ee;
+  --bg-tertiary: #bfcde0;
+  --text-primary: #0d1b2e;
+  --text-secondary: #253a54;
+  --text-muted: #4a6585;
+  --accent: #006ea6;
+  --accent-dim: rgba(0, 110, 166, 0.12);
+  --accent-glow: rgba(0, 110, 166, 0.22);
+  --card-bg: #c6d3e5;
+  --card-border: rgba(0, 110, 166, 0.2);
+  --card-border-hover: rgba(0, 110, 166, 0.5);
+  --nav-bg: rgba(205, 216, 232, 0.92);
+  --badge-bg: rgba(0, 110, 166, 0.1);
+  --badge-border: rgba(0, 110, 166, 0.28);
+  --progress-bg: rgba(0, 110, 166, 0.1);
 }
 
 /* ============================================================
@@ -882,7 +882,7 @@ code {
 .back-to-top:hover { color: var(--accent); border-color: var(--accent); box-shadow: 0 4px 20px var(--accent-glow); }
 
 /* ============================================================
-   RESPONSIVE — TABLET (≤ 960px)
+   RESPONSIVE â€” TABLET (â‰¤ 960px)
    ============================================================ */
 @media (max-width: 960px) {
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
@@ -892,7 +892,7 @@ code {
 }
 
 /* ============================================================
-   RESPONSIVE — MOBILE (≤ 768px)
+   RESPONSIVE â€” MOBILE (â‰¤ 768px)
    ============================================================ */
 @media (max-width: 768px) {
   /* Nav */
@@ -937,7 +937,7 @@ code {
 }
 
 /* ============================================================
-   RESPONSIVE — SMALL MOBILE (≤ 480px)
+   RESPONSIVE â€” SMALL MOBILE (â‰¤ 480px)
    ============================================================ */
 @media (max-width: 480px) {
   .avatar-placeholder { width: 130px; height: 130px; font-size: 1.9rem; }
