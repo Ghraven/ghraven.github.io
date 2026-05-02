@@ -149,7 +149,7 @@ animateEls.forEach(el => animObserver.observe(el));
 /* ============================================================
    STATS COUNTER (count-up on scroll)
    ============================================================ */
-const statNums = document.querySelectorAll('.stat-num');
+const statNums = document.querySelectorAll('.stat-num:not(.stat-num--static)');
 
 function countUp(el) {
   const target = parseInt(el.getAttribute('data-target'), 10);
@@ -192,4 +192,135 @@ window.addEventListener('scroll', () => {
 
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ============================================================
+   CONTACT MODAL
+   ============================================================
+   Email delivery uses Formspree (free, no backend needed).
+   Setup (2 minutes):
+     1. Go to https://formspree.io and sign up (free)
+     2. Click "New Form" → copy your form endpoint, e.g.:
+        https://formspree.io/f/xyzabc12
+     3. Replace the FORMSPREE_ENDPOINT value below with your URL.
+   ============================================================ */
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+const modal         = document.getElementById('contact-modal');
+const openBtn       = document.getElementById('open-contact-modal');
+const closeBtn      = document.getElementById('modal-close');
+const contactForm   = document.getElementById('contact-form');
+const formState     = document.getElementById('modal-form-state');
+const successState  = document.getElementById('modal-success-state');
+const closeSuccess  = document.getElementById('btn-close-success');
+const sendBtn       = document.getElementById('btn-send');
+const emailInput    = document.getElementById('f-email');
+const emailError    = document.getElementById('email-error');
+
+function openModal() {
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => emailInput.focus(), 350);
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  // Reset after transition
+  setTimeout(() => {
+    contactForm.reset();
+    clearEmailError();
+    formState.style.display = 'block';
+    successState.classList.remove('visible');
+    successState.style.display = 'none';
+    sendBtn.classList.remove('loading');
+    sendBtn.disabled = false;
+  }, 320);
+}
+
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+closeSuccess.addEventListener('click', closeModal);
+
+// Close on overlay click (not on card click)
+modal.addEventListener('click', e => {
+  if (e.target === modal) closeModal();
+});
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+});
+
+/* ---------- Email validation ---------- */
+function isValidEmail(email) {
+  // Standard format: local@domain.tld — requires at least 2-char TLD
+  return /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email.trim());
+}
+
+function showEmailError(msg) {
+  emailError.textContent = msg;
+  emailInput.classList.add('input-error');
+}
+
+function clearEmailError() {
+  emailError.textContent = '';
+  emailInput.classList.remove('input-error');
+}
+
+emailInput.addEventListener('input', () => {
+  if (emailInput.value && !isValidEmail(emailInput.value)) {
+    showEmailError('— enter a valid email address');
+  } else {
+    clearEmailError();
+  }
+});
+
+/* ---------- Form submission ---------- */
+contactForm.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const email = emailInput.value.trim();
+
+  if (!isValidEmail(email)) {
+    showEmailError('— enter a valid email address');
+    emailInput.focus();
+    return;
+  }
+  clearEmailError();
+
+  // Loading state
+  sendBtn.classList.add('loading');
+  sendBtn.disabled = true;
+
+  const data = {
+    name:    document.getElementById('f-name').value.trim(),
+    email,
+    subject: document.getElementById('f-subject').value.trim(),
+    message: document.getElementById('f-message').value.trim(),
+  };
+
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method:  'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body:    JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      // Show success
+      formState.style.display = 'none';
+      successState.style.display = 'flex';
+      successState.classList.add('visible');
+    } else {
+      throw new Error('Send failed');
+    }
+  } catch {
+    // Fallback: open mailto pre-filled so the message isn't lost
+    const subject = encodeURIComponent(data.subject || 'Message from portfolio');
+    const body    = encodeURIComponent(`From: ${data.name} (${data.email})\n\n${data.message}`);
+    window.location.href = `mailto:rolly.calma.0217@gmail.com?subject=${subject}&body=${body}`;
+    sendBtn.classList.remove('loading');
+    sendBtn.disabled = false;
+  }
 });
