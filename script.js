@@ -24,12 +24,19 @@ themeToggle.addEventListener('click', () => {
    SCROLL PROGRESS BAR
    ============================================================ */
 const progressBar = document.getElementById('scroll-progress');
+let scrollTicking = false;
 
 window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  progressBar.style.width = pct + '%';
+  if (!scrollTicking) {
+    window.requestAnimationFrame(() => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
 }, { passive: true });
 
 /* ============================================================
@@ -147,26 +154,47 @@ const animObserver = new IntersectionObserver(entries => {
 animateEls.forEach(el => animObserver.observe(el));
 
 /* ============================================================
+   HERO PARALLAX
+   ============================================================ */
+const heroGrid = document.querySelector('.hero-bg-grid');
+if (heroGrid) {
+  document.addEventListener('mousemove', (e) => {
+    // Throttle slightly by using requestAnimationFrame
+    window.requestAnimationFrame(() => {
+      const x = (window.innerWidth / 2 - e.pageX) / 50;
+      const y = (window.innerHeight / 2 - e.pageY) / 50;
+      heroGrid.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  });
+}
+
+/* ============================================================
    STATS COUNTER (count-up on scroll)
    ============================================================ */
 const statNums = document.querySelectorAll('.stat-num:not(.stat-num--static)');
 
 function countUp(el) {
   const target = parseInt(el.getAttribute('data-target'), 10);
-  const duration = 1200;
-  const step = 16;
-  const increment = target / (duration / step);
-  let current = 0;
+  const duration = 1500; 
+  let startTimestamp = null;
 
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      el.textContent = target + '+';
-      clearInterval(timer);
+  // Ease-out Quart mathematical function
+  const easeOutQuart = (t) => 1 - (--t) * t * t * t;
+
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    const current = Math.floor(easeOutQuart(progress) * target);
+    
+    if (progress < 1) {
+      el.textContent = current;
+      window.requestAnimationFrame(step);
     } else {
-      el.textContent = Math.floor(current);
+      el.textContent = target + '+';
     }
-  }, step);
+  };
+  
+  window.requestAnimationFrame(step);
 }
 
 const statsObserver = new IntersectionObserver(entries => {
@@ -252,7 +280,10 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
 });
 
-/* ---------- Email validation ---------- */
+/* ---------- Form validation ---------- */
+const nameInput = document.getElementById('f-name');
+const msgInput  = document.getElementById('f-message');
+
 function isValidEmail(email) {
   // Standard format: local@domain.tld — requires at least 2-char TLD
   return /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email.trim());
@@ -261,18 +292,41 @@ function isValidEmail(email) {
 function showEmailError(msg) {
   emailError.textContent = msg;
   emailInput.classList.add('input-error');
+  emailInput.classList.remove('input-valid');
 }
 
 function clearEmailError() {
   emailError.textContent = '';
   emailInput.classList.remove('input-error');
+  emailInput.classList.add('input-valid');
 }
 
 emailInput.addEventListener('input', () => {
   if (emailInput.value && !isValidEmail(emailInput.value)) {
     showEmailError('— enter a valid email address');
-  } else {
+  } else if (emailInput.value) {
     clearEmailError();
+  } else {
+    emailError.textContent = '';
+    emailInput.classList.remove('input-error', 'input-valid');
+  }
+});
+
+nameInput.addEventListener('input', () => {
+  if (nameInput.value.trim().length > 0) {
+    nameInput.classList.add('input-valid');
+    nameInput.classList.remove('input-error');
+  } else {
+    nameInput.classList.remove('input-valid');
+  }
+});
+
+msgInput.addEventListener('input', () => {
+  if (msgInput.value.trim().length > 0) {
+    msgInput.classList.add('input-valid');
+    msgInput.classList.remove('input-error');
+  } else {
+    msgInput.classList.remove('input-valid');
   }
 });
 
