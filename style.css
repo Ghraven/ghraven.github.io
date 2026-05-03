@@ -62,6 +62,27 @@ body {
   overflow-x: hidden;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border-hover);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Text Selection */
+::selection {
+  background-color: var(--accent);
+  color: #0a0f1e;
+}
+
 /* Page entrance animation */
 .page-loading { opacity: 0; }
 .page-loaded  { opacity: 1; transition: opacity 0.4s ease; }
@@ -134,11 +155,7 @@ code {
   transform: translateY(0);
 }
 
-.skill-group:nth-child(2).animate-on-scroll { transition-delay: 0.1s; }
-.skill-group:nth-child(3).animate-on-scroll { transition-delay: 0.2s; }
-.project-card:nth-child(2).animate-on-scroll { transition-delay: 0.1s; }
-.project-card:nth-child(3).animate-on-scroll { transition-delay: 0.15s; }
-.project-card:nth-child(4).animate-on-scroll { transition-delay: 0.2s; }
+/* Dynamic transition delays are handled via JavaScript */
 
 /* ============================================================
    NAVBAR
@@ -208,14 +225,22 @@ code {
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   transition: color 0.2s ease, background 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 .theme-toggle:hover { color: var(--accent); background: var(--accent-dim); }
 .theme-toggle svg { width: 18px; height: 18px; }
-.icon-sun, .icon-moon { display: flex; align-items: center; }
-[data-theme="dark"] .icon-sun  { display: flex; }
-[data-theme="dark"] .icon-moon { display: none; }
-[data-theme="light"] .icon-sun  { display: none; }
-[data-theme="light"] .icon-moon { display: flex; }
+
+.icon-sun, .icon-moon { 
+  display: flex; align-items: center; 
+  position: absolute;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] .icon-sun  { opacity: 1; transform: rotate(0deg) scale(1); }
+[data-theme="dark"] .icon-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+[data-theme="light"] .icon-sun  { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+[data-theme="light"] .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
 
 /* Hamburger */
 .hamburger {
@@ -1514,4 +1539,40 @@ code {
   .form-footer { flex-direction: column; align-items: stretch; }
   .btn-send { width: 100%; }
   .form-note { text-align: center; }
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .navbar, .theme-toggle, .hero-bg-grid, .hero-scroll-hint, .contact-email-cta, .back-to-top, .stats-strip {
+    display: none !important;
+  }
+  .section, .hero {
+    padding: 20px 0 !important;
+    min-height: auto !important;
+  }
+  .project-card, .skill-group, .service-card, .terminal-card, .about-card {
+    background: #ffffff !important;
+    border: 1px solid #dddddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, p, span, div {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .btn {
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    background: transparent !important;
+  }
 }

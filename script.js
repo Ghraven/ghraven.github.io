@@ -142,6 +142,20 @@ setTimeout(type, 700);
    ============================================================ */
 const animateEls = document.querySelectorAll('.animate-on-scroll');
 
+// Apply dynamic staggered delays to grid items
+const grids = document.querySelectorAll('.skills-grid, .projects-grid, .services-grid, .oss-repos');
+grids.forEach(grid => {
+  Array.from(grid.children).forEach((child, index) => {
+    if (child.classList.contains('animate-on-scroll') || child.closest('.animate-on-scroll')) {
+       // Only apply if it's animated or inside an animated container
+       child.style.transitionDelay = `${index * 0.1}s`;
+    } else {
+       // If the children themselves are animated (like service-cards)
+       child.style.transitionDelay = `${index * 0.1}s`;
+    }
+  });
+});
+
 const animObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -328,6 +342,27 @@ msgInput.addEventListener('input', () => {
   } else {
     msgInput.classList.remove('input-valid');
   }
+});
+
+/* ============================================================
+   MAGNETIC BUTTONS
+   ============================================================ */
+const magneticBtns = document.querySelectorAll('.btn, .contact-email-cta');
+
+magneticBtns.forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    // Smooth magnetic pull
+    btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    // Reset transform to allow CSS hover/default states to take over
+    btn.style.transform = '';
+  });
 });
 
 /* ---------- Form submission ---------- */
