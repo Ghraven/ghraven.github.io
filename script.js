@@ -98,8 +98,8 @@ document.addEventListener('click', e => {
 const typeEl  = document.getElementById('typewriter');
 const phrases = [
   'Python Developer & Automation Builder',
-  'AI Tools Enthusiast',
-  'Full-Stack Developer in Training',
+  'AI Tools Engineer',
+  'Open Source Contributor',
 ];
 
 let phraseIndex = 0;
