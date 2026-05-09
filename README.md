@@ -21,6 +21,8 @@ I graduated in Information Technology but coding took a back seat for years — 
 
 Then AI arrived and everything changed. Suddenly I could build things that actually worked, learn while I built, and have an assistant that helped me push through the hard parts. That reignited everything. Now I spend my time building real AI tools — not just following tutorials, but shipping things I actually want to use.
 
+> Updated for 2026 with a sharper portfolio focus, clearer project impact, and new AI-driven automation highlights.
+
 I'm not a career developer with years of job history. I'm someone who came back to coding with a clear reason, and I think the projects show that.
 
 ---

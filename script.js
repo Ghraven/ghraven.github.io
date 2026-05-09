@@ -98,7 +98,7 @@ document.addEventListener('click', e => {
 const typeEl  = document.getElementById('typewriter');
 const phrases = [
   'Python Developer & Automation Builder',
-  'AI Tools Engineer',
+  'AI Systems Engineer',
   'Open Source Contributor',
 ];
 
@@ -258,6 +258,15 @@ const closeSuccess  = document.getElementById('btn-close-success');
 const sendBtn       = document.getElementById('btn-send');
 const emailInput    = document.getElementById('f-email');
 const emailError    = document.getElementById('email-error');
+
+/* ============================================================
+   DYNAMIC FOOTER YEAR
+   ============================================================ */
+const footerYearEl = document.getElementById('footer-year');
+if (footerYearEl) {
+  footerYearEl.textContent = new Date().getFullYear();
+}
+
 
 function openModal() {
   modal.classList.add('open');
