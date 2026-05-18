@@ -353,27 +353,6 @@ msgInput.addEventListener('input', () => {
   }
 });
 
-/* ============================================================
-   MAGNETIC BUTTONS
-   ============================================================ */
-const magneticBtns = document.querySelectorAll('.btn, .contact-email-cta');
-
-magneticBtns.forEach(btn => {
-  btn.addEventListener('mousemove', (e) => {
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    
-    // Smooth magnetic pull
-    btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
-  });
-
-  btn.addEventListener('mouseleave', () => {
-    // Reset transform to allow CSS hover/default states to take over
-    btn.style.transform = '';
-  });
-});
-
 /* ---------- Form submission ---------- */
 contactForm.addEventListener('submit', async e => {
   e.preventDefault();

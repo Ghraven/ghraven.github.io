@@ -18,7 +18,9 @@
   --badge-bg: rgba(0, 212, 255, 0.07);
   --badge-border: rgba(0, 212, 255, 0.22);
   --progress-bg: rgba(0, 212, 255, 0.12);
-  --transition: 0.3s ease;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition: 0.24s var(--ease-out);
 }
 
 [data-theme="light"] {
@@ -181,8 +183,8 @@ code {
    ============================================================ */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(18px);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
 }
 
 .animate-on-scroll.visible {
@@ -413,7 +415,7 @@ code {
   transform: translateX(-50%);
   width: 600px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.035) 0%, transparent 70%);
   z-index: 0;
   pointer-events: none;
   transition: opacity var(--transition);
@@ -493,7 +495,7 @@ code {
   font-size: clamp(2.8rem, 8vw, 5.5rem);
   font-weight: 800;
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin-bottom: 20px;
   background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent) 100%);
   -webkit-background-clip: text;
@@ -551,12 +553,12 @@ code {
   align-items: center;
   gap: 8px;
   padding: 13px 28px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-family: 'Outfit', sans-serif;
   font-weight: 600;
   font-size: 0.93rem;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out), background 0.18s var(--ease-out), border-color 0.18s var(--ease-out), color 0.18s var(--ease-out);
   min-height: 48px;
   border: 2px solid transparent;
 }
@@ -568,8 +570,8 @@ code {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px var(--accent-glow);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--accent-glow);
   background: #33dcff;
   border-color: #33dcff;
 }
@@ -583,9 +585,13 @@ code {
 .btn-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px var(--accent-glow);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--accent-glow);
   background: var(--accent-dim);
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn-icon {
@@ -774,7 +780,7 @@ code {
   width: 100%;
   background: #0d1117;
   border: 1px solid var(--card-border);
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.78rem;
@@ -875,9 +881,9 @@ code {
 .skill-group {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 28px;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, background var(--transition);
+  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background var(--transition), transform 0.2s var(--ease-out);
   position: relative;
   overflow: hidden;
 }
@@ -896,7 +902,8 @@ code {
 
 .skill-group:hover {
   border-color: var(--card-border-hover);
-  box-shadow: 0 0 28px var(--accent-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px var(--accent-glow);
 }
 
 .skill-group:hover::before {
@@ -966,14 +973,14 @@ code {
 .project-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background var(--transition);
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background var(--transition);
 }
 
 .card-accent-line {
@@ -985,12 +992,12 @@ code {
   background: linear-gradient(to right, var(--accent), #7c3aed);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.35s ease;
+  transition: transform 0.3s var(--ease-out);
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 40px var(--accent-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px var(--accent-glow);
   border-color: var(--card-border-hover);
 }
 
@@ -1132,16 +1139,16 @@ code {
   gap: 18px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 18px 22px;
   text-align: left;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, background var(--transition);
+  transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background var(--transition);
 }
 
 .contact-item:hover {
   border-color: var(--card-border-hover);
-  transform: translateX(6px);
-  box-shadow: 0 4px 24px var(--accent-glow);
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 .contact-icon {
@@ -1149,7 +1156,7 @@ code {
   height: 44px;
   flex-shrink: 0;
   background: var(--accent-dim);
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1214,7 +1221,7 @@ code {
   right: 28px;
   width: 44px;
   height: 44px;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid var(--card-border);
   background: var(--card-bg);
   color: var(--text-secondary);
@@ -1225,7 +1232,7 @@ code {
   opacity: 0;
   pointer-events: none;
   transform: translateY(12px);
-  transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background var(--transition);
+  transition: opacity 0.24s var(--ease-out), transform 0.24s var(--ease-out), border-color 0.18s var(--ease-out), color 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out), background var(--transition);
   z-index: 500;
 }
 
@@ -1430,7 +1437,7 @@ code {
   background: var(--bg-tertiary);
   border: 1px solid var(--card-border);
   border-left: 3px solid #4ade80;
-  border-radius: 10px;
+  border-radius: 8px;
   transition: background var(--transition), border-color var(--transition);
 }
 
@@ -1486,15 +1493,15 @@ code {
   padding: 28px 24px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 14px;
+  border-radius: 8px;
   text-align: center;
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background var(--transition);
+  transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background var(--transition);
 }
 
 .service-card:hover {
   border-color: var(--card-border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px var(--accent-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px var(--accent-glow);
 }
 
 .service-icon {
@@ -1572,9 +1579,9 @@ code {
   padding: 18px 14px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
+  border-radius: 8px;
   text-align: center;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, background var(--transition);
+  transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background var(--transition);
 }
 
 .oss-repo:hover {
@@ -1605,7 +1612,7 @@ code {
   gap: 16px;
   background: var(--accent-dim);
   border: 1px solid var(--accent);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 20px 28px;
   margin-bottom: 20px;
   max-width: 500px;
@@ -1614,7 +1621,7 @@ code {
   color: var(--text-primary);
   font-weight: 500;
   font-size: 0.95rem;
-  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition: background 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out), transform 0.18s var(--ease-out);
 }
 
 .contact-email-cta svg {
@@ -1699,14 +1706,14 @@ code {
 .modal-card {
   background: var(--bg-secondary);
   border: 1px solid var(--card-border);
-  border-radius: 20px;
+  border-radius: 8px;
   width: 100%;
   max-width: 560px;
   padding: 32px;
   position: relative;
-  transform: translateY(24px) scale(0.97);
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background var(--transition);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.28s var(--ease-snap), background var(--transition);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.42);
 }
 
 .modal-overlay.open .modal-card {
@@ -1797,14 +1804,14 @@ code {
 .form-input {
   background: var(--bg-tertiary);
   border: 1px solid var(--card-border);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 11px 16px;
   color: var(--text-primary);
   font-family: 'Outfit', sans-serif;
   font-size: 0.92rem;
   outline: none;
   width: 100%;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background var(--transition);
+  transition: border-color 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out), background var(--transition);
   -webkit-appearance: none;
   appearance: none;
 }
@@ -1856,7 +1863,7 @@ code {
   background: var(--accent);
   color: #0a0f1e;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 12px 24px;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
@@ -1865,13 +1872,17 @@ code {
   min-width: 160px;
   justify-content: center;
   position: relative;
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.18s var(--ease-out), transform 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out);
 }
 
 .btn-send:hover:not(:disabled) {
   background: #33dcff;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.btn-send:active:not(:disabled) {
+  transform: scale(0.97);
 }
 
 .btn-send:disabled {
@@ -1979,6 +1990,22 @@ code {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .success-title {
   font-family: 'Syne', sans-serif;
   font-size: 1.3rem;
@@ -1995,7 +2022,7 @@ code {
 .btn-close-success {
   margin-top: 8px;
   padding: 10px 28px;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid var(--card-border);
   background: transparent;
   color: var(--text-secondary);
