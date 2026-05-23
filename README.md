@@ -35,7 +35,7 @@ I build AI-powered tools, automation pipelines, and multi-agent systems — apps
 
 ### 🚀 Featured Projects
 
-**[🏠 Agent Meeting Room](https://github.com/Ghraven/agent-meeting-room)** &nbsp;·&nbsp; `Python` `Flask` `Ollama` `Claude API`
+**[🏠 Agent Meeting Room](https://github.com/GhravenLabs/Agent-Meeting-Room)** &nbsp;·&nbsp; `Python` `Flask` `Ollama` `Claude API`
 > A web app where you @mention AI agents into a live group chat. Add **unlimited agents** — any Ollama model works, limited only by your hardware.
 > Includes structured **debate mode** (3 rounds), **free-talk streaming** via SSE, pluggable **memory** (local folder or Obsidian), and a portable **Windows .exe release**.
 > ⭐ 2 stars · v1.7.0
