@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Rolly Calma</h1>
-<h3 align="center">AI Builder · Python Developer · Multi-Agent Systems</h3>
+<h3 align="center">Python Developer · AI Automation Builder · Open Source Contributor</h3>
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=ghraven&label=Profile%20views&color=0e75b6&style=flat" alt="ghraven" />
   &nbsp;
@@ -21,7 +21,7 @@ I graduated in Information Technology but coding took a back seat for years — 
 
 Then AI arrived and everything changed. Suddenly I could build things that actually worked, learn while I built, and have an assistant that helped me push through the hard parts. That reignited everything. Now I spend my time building real AI tools — not just following tutorials, but shipping things I actually want to use.
 
-> Updated for 2026 with a sharper portfolio focus, clearer project impact, and new AI-driven automation highlights.
+> Updated for 2026 with a sharper portfolio focus, current open-source metrics, and practical AI automation highlights.
 
 I'm not a career developer with years of job history. I'm someone who came back to coding with a clear reason, and I think the projects show that.
 
@@ -29,7 +29,7 @@ I'm not a career developer with years of job history. I'm someone who came back 
 
 ### 🤖 What I build
 
-I build AI-powered tools, automation pipelines, and multi-agent systems — apps where multiple LLMs collaborate, debate, and reason together in real time. I focus on making AI practical: local models via Ollama, cloud API integrations, real web apps, and developer templates that save time without burning your token budget.
+I build AI-powered tools, automation pipelines, and multi-agent systems. I focus on making AI practical: local models via Ollama, cloud API integrations, real web apps, developer utilities, and workflows that save time without burning your token budget.
 
 ---
 
@@ -92,15 +92,19 @@ I actively contribute to Python open source projects — fixing bugs, adding fea
 
 <p align="left">
   <img src="https://img.shields.io/badge/PRs_opened-109-blue?style=flat-square" alt="PRs opened" />
-  <img src="https://img.shields.io/badge/Merged-24-brightgreen?style=flat-square" alt="Merged" />
-  <img src="https://img.shields.io/badge/Repos_contributed-9-orange?style=flat-square" alt="Repos contributed" />
-  <img src="https://img.shields.io/badge/Combined_stars-140k%2B-yellow?style=flat-square" alt="Combined stars" />
+  <img src="https://img.shields.io/badge/Merged-23-brightgreen?style=flat-square" alt="Merged" />
+  <img src="https://img.shields.io/badge/Repos_contributed-24-orange?style=flat-square" alt="Repos contributed" />
+  <img src="https://img.shields.io/badge/Combined_stars-888k%2B-yellow?style=flat-square" alt="Combined stars" />
 </p>
 
 **Repos I've contributed to:**
 
 | Repository | What I worked on |
 |---|---|
+| [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) ⭐13k+ | Targeted fixes and test coverage improvements |
+| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) ⭐100k+ | Small bug fixes and maintenance improvements |
+| [microsoft/autogen](https://github.com/microsoft/autogen) ⭐45k+ | Contributor fixes across agent tooling |
+| [openai/openai-python](https://github.com/openai/openai-python) ⭐27k+ | Python SDK contribution work |
 | [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) ⭐53k | Configurable news parameters · Renamed social_media → sentiment analyst |
 | [ccxt/ccxt](https://github.com/ccxt/ccxt) ⭐42k | Fixed `watch_orders` message hash bug in GRVT exchange |
 | [voxel51/fiftyone](https://github.com/voxel51/fiftyone) ⭐10k | Replaced deprecated `datetime.utcnow()` · Migrated brush import to `label_studio_sdk` · Added `train_extra` split to Cityscapes loader |

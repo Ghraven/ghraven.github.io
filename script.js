@@ -97,9 +97,10 @@ document.addEventListener('click', e => {
    ============================================================ */
 const typeEl  = document.getElementById('typewriter');
 const phrases = [
-  'Python Developer & Automation Builder',
-  'AI Systems Engineer',
+  'Python Developer & AI Automation Builder',
+  'Local LLM Tool Builder',
   'Open Source Contributor',
+  'Developer Workflow Builder',
 ];
 
 let phraseIndex = 0;
