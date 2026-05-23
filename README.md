@@ -36,9 +36,9 @@ I build AI-powered tools, automation pipelines, and multi-agent systems — apps
 ### 🚀 Featured Projects
 
 **[🏠 Agent Meeting Room](https://github.com/Ghraven/agent-meeting-room)** &nbsp;·&nbsp; `Python` `Flask` `Ollama` `Claude API`
-> A web app where you @mention AI agents to bring them into a live group chat.
-> Runs any **Ollama-compatible model** — defaults use sub-8B models so it works on modest hardware, but swap in anything your GPU can handle.
-> Includes structured **debate mode** (3 rounds), **free-talk streaming** via SSE, and **Obsidian memory** integration.
+> A web app where you @mention AI agents into a live group chat. Add **unlimited agents** — any Ollama model works, limited only by your hardware.
+> Includes structured **debate mode** (3 rounds), **free-talk streaming** via SSE, pluggable **memory** (local folder or Obsidian), and a portable **Windows .exe release**.
+> ⭐ 2 stars · v1.7.0
 
 **[🎬 YT Shorts Autopilot](https://github.com/Ghraven/yt-shorts-autopilot)** &nbsp;·&nbsp; `Python` `FFmpeg` `YouTube API`
 > Automated YouTube Shorts upload pipeline — adds watermark, boosts audio, mixes BGM, then schedules 4 uploads per day at fixed times.
@@ -91,10 +91,10 @@ Small standalone scripts and utilities I've published.
 I actively contribute to Python open source projects — fixing bugs, adding features, improving test coverage, and refactoring shared logic across AI, trading, and developer tooling repos.
 
 <p align="left">
-  <img src="https://img.shields.io/badge/PRs_opened-58-blue?style=flat-square" alt="PRs opened" />
-  <img src="https://img.shields.io/badge/Merged-20-brightgreen?style=flat-square" alt="Merged" />
+  <img src="https://img.shields.io/badge/PRs_opened-109-blue?style=flat-square" alt="PRs opened" />
+  <img src="https://img.shields.io/badge/Merged-24-brightgreen?style=flat-square" alt="Merged" />
   <img src="https://img.shields.io/badge/Repos_contributed-9-orange?style=flat-square" alt="Repos contributed" />
-  <img src="https://img.shields.io/badge/Combined_stars-130k%2B-yellow?style=flat-square" alt="Combined stars" />
+  <img src="https://img.shields.io/badge/Combined_stars-140k%2B-yellow?style=flat-square" alt="Combined stars" />
 </p>
 
 **Repos I've contributed to:**
@@ -108,6 +108,8 @@ I actively contribute to Python open source projects — fixing bugs, adding fea
 | [Tracer-Cloud/opensre](https://github.com/Tracer-Cloud/opensre) ⭐3.6k | Unit tests (3 merged ✅) · Shared helpers · Refactoring · Docs · Telegram docs · LLM providers reference · Snowflake/OpenObserve/OpenSearch tool tests · Early-exit integration validation · Post-signup onboarding page |
 | [tecnolgd/repoScanner](https://github.com/tecnolgd/repoScanner) | Expanded language detection to 40+ file extensions |
 | [Noble-Lab/casanovo](https://github.com/Noble-Lab/casanovo) ⭐185 | Fixed `val_check_interval` float/int · Improved README (grammar, badges, quick start) |
+| [agno-agi/agno](https://github.com/agno-agi/agno) ⭐24k | Fixed asyncio loop usage in YouTubeReader — replaced deprecated `get_event_loop()` with `get_running_loop()` |
+| [run-llama/llama_index](https://github.com/run-llama/llama_index) ⭐40k | Fixed async ingestion running loop handling |
 | [IN3PIRE/pn](https://github.com/IN3PIRE/pn) | Added `!uptime` command · Pinned dependencies |
 
 ---
