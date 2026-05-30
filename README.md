@@ -7,12 +7,6 @@
     <img src="https://img.shields.io/badge/🌐%20Portfolio-ghraven.github.io-0e75b6?style=flat" alt="Portfolio" />
   </a>
 </p>
-<p align="center">
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=ghraven&theme=flat&no-frame=true&column=6" alt="ghraven" />
-  </a>
-</p>
-
 ---
 
 ### 👤 About me
@@ -91,29 +85,31 @@ Small standalone scripts and utilities I've published.
 I actively contribute to Python open source projects — fixing bugs, adding features, improving test coverage, and refactoring shared logic across AI, trading, and developer tooling repos.
 
 <p align="left">
-  <img src="https://img.shields.io/badge/PRs_opened-119-blue?style=flat-square" alt="PRs opened" />
-  <img src="https://img.shields.io/badge/Merged-24-brightgreen?style=flat-square" alt="Merged" />
-  <img src="https://img.shields.io/badge/Repos_contributed-24-orange?style=flat-square" alt="Repos contributed" />
-  <img src="https://img.shields.io/badge/Combined_stars-888k%2B-yellow?style=flat-square" alt="Combined stars" />
+  <img src="https://img.shields.io/badge/PRs_opened-133-blue?style=flat-square" alt="PRs opened" />
+  <img src="https://img.shields.io/badge/Merged-31-brightgreen?style=flat-square" alt="Merged" />
+  <img src="https://img.shields.io/badge/Repos_contributed-27-orange?style=flat-square" alt="Repos contributed" />
+  <img src="https://img.shields.io/badge/Combined_stars-909k%2B-yellow?style=flat-square" alt="Combined stars" />
 </p>
 
 **Repos I've contributed to:**
 
 | Repository | What I worked on |
 |---|---|
-| [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) ⭐13k+ | Targeted fixes and test coverage improvements |
+| [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) ⭐17k+ | Targeted fixes and test coverage improvements |
 | [langchain-ai/langchain](https://github.com/langchain-ai/langchain) ⭐100k+ | Small bug fixes and maintenance improvements |
-| [microsoft/autogen](https://github.com/microsoft/autogen) ⭐45k+ | Contributor fixes across agent tooling |
-| [openai/openai-python](https://github.com/openai/openai-python) ⭐27k+ | Python SDK contribution work |
-| [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) ⭐53k | Configurable news parameters · Renamed social_media → sentiment analyst |
+| [microsoft/autogen](https://github.com/microsoft/autogen) ⭐58k+ | Contributor fixes across agent tooling |
+| [openai/openai-python](https://github.com/openai/openai-python) ⭐31k+ | Python SDK contribution work |
+| [chroma-core/chroma](https://github.com/chroma-core/chroma) ⭐28k | Metadata merge, type-ignore cleanup, and deterministic UTF-8 schema/config loading |
+| [reconurge/flowsint](https://github.com/reconurge/flowsint) ⭐3.5k | Timezone-aware UTC service timestamps with focused regression tests |
+| [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) ⭐80k | Configurable news parameters · Renamed social_media → sentiment analyst |
 | [ccxt/ccxt](https://github.com/ccxt/ccxt) ⭐42k | Fixed `watch_orders` message hash bug in GRVT exchange |
 | [voxel51/fiftyone](https://github.com/voxel51/fiftyone) ⭐10k | Replaced deprecated `datetime.utcnow()` · Migrated brush import to `label_studio_sdk` · Added `train_extra` split to Cityscapes loader |
-| [ollama/ollama-python](https://github.com/ollama/ollama-python) ⭐9.9k | Added `client.exists()` · Exposed `__version__` and `version()` · Added `Audio` field to `Message` |
+| [ollama/ollama-python](https://github.com/ollama/ollama-python) ⭐10k | Added `client.exists()` · Exposed `__version__` and `version()` · Added `Audio` field to `Message` |
 | [Tracer-Cloud/opensre](https://github.com/Tracer-Cloud/opensre) ⭐3.6k | Unit tests (3 merged ✅) · Shared helpers · Refactoring · Docs · Telegram docs · LLM providers reference · Snowflake/OpenObserve/OpenSearch tool tests · Early-exit integration validation · Post-signup onboarding page |
 | [tecnolgd/repoScanner](https://github.com/tecnolgd/repoScanner) | Expanded language detection to 40+ file extensions |
 | [Noble-Lab/casanovo](https://github.com/Noble-Lab/casanovo) ⭐185 | Fixed `val_check_interval` float/int · Improved README (grammar, badges, quick start) |
-| [agno-agi/agno](https://github.com/agno-agi/agno) ⭐24k | Fixed asyncio loop usage in YouTubeReader — replaced deprecated `get_event_loop()` with `get_running_loop()` |
-| [run-llama/llama_index](https://github.com/run-llama/llama_index) ⭐40k | Fixed async ingestion running loop handling |
+| [agno-agi/agno](https://github.com/agno-agi/agno) ⭐40k | Fixed asyncio loop usage in YouTubeReader — replaced deprecated `get_event_loop()` with `get_running_loop()` |
+| [run-llama/llama_index](https://github.com/run-llama/llama_index) ⭐50k | Fixed async ingestion running loop handling |
 | [IN3PIRE/pn](https://github.com/IN3PIRE/pn) | Added `!uptime` command · Pinned dependencies |
 
 ---
