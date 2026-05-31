@@ -31,8 +31,8 @@ window.addEventListener('scroll', () => {
     window.requestAnimationFrame(() => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = pct + '%';
+      const pct = docHeight > 0 ? scrollTop / docHeight : 0;
+      progressBar.style.transform = `scaleX(${pct})`;
       scrollTicking = false;
     });
     scrollTicking = true;
@@ -143,17 +143,14 @@ setTimeout(type, 700);
    ============================================================ */
 const animateEls = document.querySelectorAll('.animate-on-scroll');
 
-// Apply dynamic staggered delays to grid items
+// Apply staggered entrance delays to grid items.
+// Capped so even a long row finishes quickly (motion should feel instant).
+const STAGGER_STEP = 0.06; // seconds
+const STAGGER_MAX = 0.24;  // seconds
 const grids = document.querySelectorAll('.skills-grid, .projects-grid, .services-grid, .oss-repos');
 grids.forEach(grid => {
   Array.from(grid.children).forEach((child, index) => {
-    if (child.classList.contains('animate-on-scroll') || child.closest('.animate-on-scroll')) {
-       // Only apply if it's animated or inside an animated container
-       child.style.transitionDelay = `${index * 0.1}s`;
-    } else {
-       // If the children themselves are animated (like service-cards)
-       child.style.transitionDelay = `${index * 0.1}s`;
-    }
+    child.style.transitionDelay = `${Math.min(index * STAGGER_STEP, STAGGER_MAX)}s`;
   });
 });
 
@@ -172,15 +169,20 @@ animateEls.forEach(el => animObserver.observe(el));
    HERO PARALLAX
    ============================================================ */
 const heroGrid = document.querySelector('.hero-bg-grid');
-if (heroGrid) {
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (heroGrid && !prefersReducedMotion) {
+  let parallaxTicking = false;
   document.addEventListener('mousemove', (e) => {
-    // Throttle slightly by using requestAnimationFrame
+    if (parallaxTicking) return;
+    parallaxTicking = true;
     window.requestAnimationFrame(() => {
       const x = (window.innerWidth / 2 - e.pageX) / 50;
       const y = (window.innerHeight / 2 - e.pageY) / 50;
       heroGrid.style.transform = `translate(${x}px, ${y}px)`;
+      parallaxTicking = false;
     });
-  });
+  }, { passive: true });
 }
 
 /* ============================================================
@@ -190,7 +192,8 @@ const statNums = document.querySelectorAll('.stat-num:not(.stat-num--static)');
 
 function countUp(el) {
   const target = parseInt(el.getAttribute('data-target'), 10);
-  const duration = 1500; 
+  const suffix = el.getAttribute('data-suffix') || '';
+  const duration = 1500;
   let startTimestamp = null;
 
   // Ease-out Quart mathematical function
@@ -205,7 +208,7 @@ function countUp(el) {
       el.textContent = current;
       window.requestAnimationFrame(step);
     } else {
-      el.textContent = target + '+';
+      el.textContent = target + suffix;
     }
   };
   
