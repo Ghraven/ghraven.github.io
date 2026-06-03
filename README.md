@@ -136,3 +136,9 @@ I actively contribute to Python open source projects — fixing bugs, adding fea
 <p>
   <img align="center" src="https://github-streak-stats.herokuapp.com/?user=ghraven&" alt="ghraven" />
 </p>
+
+---
+
+## AI Assistance Transparency
+
+I use AI-assisted development tools, including Codex and Claude, while building and maintaining this project. All code, design decisions, testing, commits, and releases are reviewed and shipped by me as the repository owner; AI tools are not listed as project contributors.
