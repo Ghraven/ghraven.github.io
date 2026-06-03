@@ -85,10 +85,10 @@ Small standalone scripts and utilities I've published.
 I actively contribute to Python open source projects — fixing bugs, adding features, improving test coverage, and refactoring shared logic across AI, trading, and developer tooling repos.
 
 <p align="left">
-  <img src="https://img.shields.io/badge/PRs_opened-133-blue?style=flat-square" alt="PRs opened" />
-  <img src="https://img.shields.io/badge/Merged-31-brightgreen?style=flat-square" alt="Merged" />
-  <img src="https://img.shields.io/badge/Repos_contributed-27-orange?style=flat-square" alt="Repos contributed" />
-  <img src="https://img.shields.io/badge/Combined_stars-909k%2B-yellow?style=flat-square" alt="Combined stars" />
+  <img src="https://img.shields.io/badge/PRs_opened-142-blue?style=flat-square" alt="PRs opened" />
+  <img src="https://img.shields.io/badge/Merged-42-brightgreen?style=flat-square" alt="Merged" />
+  <img src="https://img.shields.io/badge/Repos_contributed-28-orange?style=flat-square" alt="Repos contributed" />
+  <img src="https://img.shields.io/badge/Combined_stars-958k%2B-yellow?style=flat-square" alt="Combined stars" />
 </p>
 
 **Repos I've contributed to:**
