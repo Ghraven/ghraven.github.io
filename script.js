@@ -186,6 +186,115 @@ if (heroGrid && !prefersReducedMotion) {
 }
 
 /* ============================================================
+   HERO CONSTELLATION CANVAS
+   Lightweight Genesis/Nebula-inspired layer for the portfolio hero.
+   ============================================================ */
+const heroCanvas = document.getElementById('hero-constellation');
+
+if (heroCanvas && !prefersReducedMotion && window.innerWidth >= 640) {
+  const ctx = heroCanvas.getContext('2d');
+  const pointer = { x: -9999, y: -9999 };
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let particles = [];
+  let frameId = 0;
+
+  function resizeHeroCanvas() {
+    const rect = heroCanvas.getBoundingClientRect();
+    width = Math.max(1, Math.floor(rect.width));
+    height = Math.max(1, Math.floor(rect.height));
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    heroCanvas.width = Math.floor(width * dpr);
+    heroCanvas.height = Math.floor(height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const baseCount = width < 720 ? 46 : 76;
+    particles = Array.from({ length: baseCount }, (_, index) => {
+      const angle = (index / baseCount) * Math.PI * 2;
+      const radius = 0.18 + Math.random() * 0.38;
+      return {
+        x: width * (0.5 + Math.cos(angle) * radius * 0.82) + (Math.random() - 0.5) * 90,
+        y: height * (0.52 + Math.sin(angle) * radius * 0.45) + (Math.random() - 0.5) * 70,
+        vx: (Math.random() - 0.5) * 0.16,
+        vy: (Math.random() - 0.5) * 0.14,
+        size: 1.2 + Math.random() * 2.1,
+        hue: Math.random() > 0.68 ? 154 : 190 + Math.random() * 54,
+      };
+    });
+  }
+
+  function drawHeroCanvas() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.globalCompositeOperation = 'lighter';
+
+    const maxLink = width < 720 ? 118 : 150;
+    particles.forEach((p, i) => {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      const dx = p.x - pointer.x;
+      const dy = p.y - pointer.y;
+      const pointerDist = Math.hypot(dx, dy);
+      if (pointerDist < 120) {
+        p.x += (dx / Math.max(pointerDist, 1)) * 0.45;
+        p.y += (dy / Math.max(pointerDist, 1)) * 0.45;
+      }
+
+      if (p.x < -20) p.x = width + 20;
+      if (p.x > width + 20) p.x = -20;
+      if (p.y < -20) p.y = height + 20;
+      if (p.y > height + 20) p.y = -20;
+
+      for (let j = i + 1; j < particles.length; j++) {
+        const q = particles[j];
+        const dist = Math.hypot(p.x - q.x, p.y - q.y);
+        if (dist < maxLink) {
+          const alpha = (1 - dist / maxLink) * 0.18;
+          ctx.strokeStyle = `hsla(${p.hue}, 95%, 66%, ${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.stroke();
+        }
+      }
+
+      const pulse = 0.75 + Math.sin(Date.now() * 0.0013 + i) * 0.25;
+      ctx.fillStyle = `hsla(${p.hue}, 95%, 68%, ${0.28 + pulse * 0.18})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * pulse, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    ctx.globalCompositeOperation = 'source-over';
+    frameId = window.requestAnimationFrame(drawHeroCanvas);
+  }
+
+  resizeHeroCanvas();
+  drawHeroCanvas();
+
+  window.addEventListener('resize', resizeHeroCanvas, { passive: true });
+  document.addEventListener('pointermove', (event) => {
+    const rect = heroCanvas.getBoundingClientRect();
+    pointer.x = event.clientX - rect.left;
+    pointer.y = event.clientY - rect.top;
+  }, { passive: true });
+  document.addEventListener('pointerleave', () => {
+    pointer.x = -9999;
+    pointer.y = -9999;
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      window.cancelAnimationFrame(frameId);
+    } else {
+      drawHeroCanvas();
+    }
+  });
+}
+
+/* ============================================================
    STATS COUNTER (count-up on scroll)
    ============================================================ */
 const statNums = document.querySelectorAll('.stat-num:not(.stat-num--static)');
