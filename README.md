@@ -1,144 +1,28 @@
-<h1 align="center">Hi 👋, I'm Rolly Calma</h1>
-<h3 align="center">Python Developer · AI Automation Builder · Open Source Contributor</h3>
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=ghraven&label=Profile%20views&color=0e75b6&style=flat" alt="ghraven" />
-  &nbsp;
-  <a href="https://ghraven.github.io" target="blank">
-    <img src="https://img.shields.io/badge/🌐%20Portfolio-ghraven.github.io-0e75b6?style=flat" alt="Portfolio" />
-  </a>
-</p>
----
+# ghraven.github.io
 
-### 👤 About me
+Personal portfolio of **Rolly Calma** — Python developer and AI automation builder.
 
-I graduated in Information Technology but coding took a back seat for years — I spent time in office automation, content review, and sales work. Coding felt like a hobby with no real direction, so I stepped away.
+**Live site:** [ghraven.github.io](https://ghraven.github.io)
 
-Then AI arrived and everything changed. Suddenly I could build things that actually worked, learn while I built, and have an assistant that helped me push through the hard parts. That reignited everything. Now I spend my time building real AI tools — not just following tutorials, but shipping things I actually want to use.
+## Stack
 
-> Updated for 2026 with a sharper portfolio focus, current open-source metrics, and practical AI automation highlights.
+Plain HTML/CSS/JS, no framework, hosted on GitHub Pages. Dark/light theme with persisted preference, constellation hero canvas, scroll-reveal animations, and a contact modal.
 
-I'm not a career developer with years of job history. I'm someone who came back to coding with a clear reason, and I think the projects show that.
+## Auto-synced stats
 
----
+The PR / merged / repos / stars numbers shown on the site are **not** edited by hand. [`scripts/sync_stats.py`](scripts/sync_stats.py) parses the badge values from my [profile README](https://github.com/Ghraven/Ghraven) (the single source of truth) and rewrites every element tagged with a `data-stat` attribute in `index.html`, plus the meta descriptions.
 
-### 🤖 What I build
+[`sync-stats.yml`](.github/workflows/sync-stats.yml) runs it every 6 hours (and on manual dispatch), committing only when the numbers actually changed.
 
-I build AI-powered tools, automation pipelines, and multi-agent systems. I focus on making AI practical: local models via Ollama, cloud API integrations, real web apps, developer utilities, and workflows that save time without burning your token budget.
+To update the stats everywhere: edit the badges in the profile README, then wait for the schedule or trigger the workflow manually.
 
----
+## Local development
 
-### 🚀 Featured Projects
-
-**[🏠 Agent Meeting Room](https://github.com/GhravenLabs/Agent-Meeting-Room)** &nbsp;·&nbsp; `Python` `Flask` `Ollama` `Claude API`
-> A web app where you @mention AI agents into a live group chat. Add **unlimited agents** — any Ollama model works, limited only by your hardware.
-> Includes structured **debate mode** (3 rounds), **free-talk streaming** via SSE, pluggable **memory** (local folder or Obsidian), and a portable **Windows .exe release**.
-> ⭐ 2 stars · v1.7.0
-
-**[🎬 YT Shorts Autopilot](https://github.com/Ghraven/yt-shorts-autopilot)** &nbsp;·&nbsp; `Python` `FFmpeg` `YouTube API`
-> Automated YouTube Shorts upload pipeline — adds watermark, boosts audio, mixes BGM, then schedules 4 uploads per day at fixed times.
-> Runs on PC startup via Task Scheduler. Uploads even while your PC is off.
-
-**[🎮 Claude Code Solo Studio](https://github.com/Ghraven/Claude-Code-Solo-Studio)** &nbsp;·&nbsp; `Claude Code` `Godot` `Unity`
-> A lightweight Claude Code template for solo game developers.
-> 6 self-contained agents, 10 slash commands, token-efficient by design — nearly zero API spent on coordination.
-> Inspired by Claude-Code-Game-Studios, rebuilt from scratch for solo devs on limited API budgets.
-
-**[📈 Crypto Futures Trading Bot](https://github.com/Ghraven)** &nbsp;·&nbsp; `Python` `CCXT` `Claude API` `Ollama`
-> Automated BTC/ETH/BNB/SOL futures trading bot running on GCP (Singapore).
-> Uses multi-timeframe analysis (4H → 1H → 30M → 15M), local LLM pre-screening via Ollama, and Claude API as a confirmation layer.
-> Currently in live testing. Repo is private while in active development.
-
----
-
-### 📌 Gists
-
-Small standalone scripts and utilities I've published.
-
-| Gist | Description |
-|---|---|
-| [🎮 Discord Quest Completer v2](https://gist.github.com/Ghraven/5f8dc950b8835e091e26a9d155598cc9) | Improved fork of aamiaa's script — completes all active quests, progress bar + ETA, auto-resume, color-coded console output |
-| [🔧 Python Utilities](https://gist.github.com/Ghraven/2550f83090b8c6d51964cecf2668786f) | Retry decorator with exponential backoff + rate limiter — pure stdlib, no deps, used in trading bots and AI agents |
-
----
-
-### 🌱 Currently exploring
-
-- Multi-agent orchestration and LLM routing patterns
-- Local LLM deployment with Ollama (RAM-efficient, keep_alive strategies)
-- Agentic workflows, tool use, and Claude API
-- Automation pipelines — video processing, scheduling, and content delivery
-- Game development tooling with Claude Code
-
----
-
-### 💬 Ask me about
-
-**Python · Flask · Local LLMs · Ollama · Anthropic Claude API · Multi-agent systems · SSE streaming · FFmpeg · YouTube API · Claude Code · Godot · Game Dev Templates**
-
-### 📫 Reach me at **rolly.calma.0217@gmail.com**
-
-
----
-
-### 🔀 Open Source Contributions
-
-I actively contribute to Python open source projects — fixing bugs, adding features, improving test coverage, and refactoring shared logic across AI, trading, and developer tooling repos.
-
-<p align="left">
-  <img src="https://img.shields.io/badge/PRs_opened-144-blue?style=flat-square" alt="PRs opened" />
-  <img src="https://img.shields.io/badge/Merged-42-brightgreen?style=flat-square" alt="Merged" />
-  <img src="https://img.shields.io/badge/Repos_contributed-28-orange?style=flat-square" alt="Repos contributed" />
-  <img src="https://img.shields.io/badge/Combined_stars-966k%2B-yellow?style=flat-square" alt="Combined stars" />
-</p>
-
-**Repos I've contributed to:**
-
-| Repository | What I worked on |
-|---|---|
-| [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) ⭐17k+ | Targeted fixes and test coverage improvements |
-| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) ⭐100k+ | Small bug fixes and maintenance improvements |
-| [microsoft/autogen](https://github.com/microsoft/autogen) ⭐58k+ | Contributor fixes across agent tooling |
-| [openai/openai-python](https://github.com/openai/openai-python) ⭐31k+ | Python SDK contribution work |
-| [chroma-core/chroma](https://github.com/chroma-core/chroma) ⭐28k | Metadata merge, type-ignore cleanup, and deterministic UTF-8 schema/config loading |
-| [reconurge/flowsint](https://github.com/reconurge/flowsint) ⭐3.5k | Timezone-aware UTC service timestamps with focused regression tests |
-| [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) ⭐80k | Configurable news parameters · Renamed social_media → sentiment analyst |
-| [ccxt/ccxt](https://github.com/ccxt/ccxt) ⭐42k | Fixed `watch_orders` message hash bug in GRVT exchange |
-| [voxel51/fiftyone](https://github.com/voxel51/fiftyone) ⭐10k | Replaced deprecated `datetime.utcnow()` · Migrated brush import to `label_studio_sdk` · Added `train_extra` split to Cityscapes loader |
-| [ollama/ollama-python](https://github.com/ollama/ollama-python) ⭐10k | Added `client.exists()` · Exposed `__version__` and `version()` · Added `Audio` field to `Message` |
-| [Tracer-Cloud/opensre](https://github.com/Tracer-Cloud/opensre) ⭐3.6k | Unit tests (3 merged ✅) · Shared helpers · Refactoring · Docs · Telegram docs · LLM providers reference · Snowflake/OpenObserve/OpenSearch tool tests · Early-exit integration validation · Post-signup onboarding page |
-| [tecnolgd/repoScanner](https://github.com/tecnolgd/repoScanner) | Expanded language detection to 40+ file extensions |
-| [Noble-Lab/casanovo](https://github.com/Noble-Lab/casanovo) ⭐185 | Fixed `val_check_interval` float/int · Improved README (grammar, badges, quick start) |
-| [agno-agi/agno](https://github.com/agno-agi/agno) ⭐40k | Fixed asyncio loop usage in YouTubeReader — replaced deprecated `get_event_loop()` with `get_running_loop()` |
-| [run-llama/llama_index](https://github.com/run-llama/llama_index) ⭐50k | Fixed async ingestion running loop handling |
-| [IN3PIRE/pn](https://github.com/IN3PIRE/pn) | Added `!uptime` command · Pinned dependencies |
-
----
-
-<h3 align="left">🔗 Connect with me:</h3>
-<p align="left">
-  <a href="https://linkedin.com/in/rollycalma/" target="blank">
-    <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn - Rolly Calma" height="30" width="40" />
-  </a>
-  &nbsp;
-  <a href="https://ghraven.github.io" target="blank">
-    <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/rss.svg" alt="Portfolio - ghraven.github.io" height="30" width="40" />
-  </a>
-</p>
-
----
-
-<p>
-  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=ghraven&show_icons=true&locale=en&layout=compact&theme=default" alt="ghraven" />
-</p>
-<p>&nbsp;
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=ghraven&show_icons=true&locale=en&theme=default" alt="ghraven" />
-</p>
-<p>
-  <img align="center" src="https://github-streak-stats.herokuapp.com/?user=ghraven&" alt="ghraven" />
-</p>
-
----
+```bash
+python -m http.server 8000
+# open http://localhost:8000
+```
 
 ## AI Assistance Transparency
 
-I use AI-assisted development tools, including Codex and Claude, while building and maintaining this project. All code, design decisions, testing, commits, and releases are reviewed and shipped by me as the repository owner; AI tools are not listed as project contributors.
+I use AI-assisted development tools, including Codex and Claude, while building and maintaining this site. All content and design decisions are reviewed and shipped by me.

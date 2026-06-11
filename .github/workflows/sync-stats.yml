@@ -1,0 +1,43 @@
+# Keeps the portfolio's PR/merged/repos/stars numbers in sync with the
+# profile README badges (Ghraven/Ghraven). The README is the single source
+# of truth — edit the badges there and this site follows automatically.
+
+name: Sync stats from profile README
+
+on:
+  schedule:
+    # Every 6 hours — the badges only change when the profile README is
+    # edited, so this keeps the site fresh same-day without constant
+    # Pages rebuilds. Use "Run workflow" for an instant sync.
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sync stats into index.html
+        run: python scripts/sync_stats.py
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet; then
+            echo "Already in sync — nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "chore: sync stats from profile README"
+          git push
