@@ -295,48 +295,6 @@ if (heroCanvas && !prefersReducedMotion && window.innerWidth >= 640) {
 }
 
 /* ============================================================
-   STATS COUNTER (count-up on scroll)
-   ============================================================ */
-const statNums = document.querySelectorAll('.stat-num:not(.stat-num--static)');
-
-function countUp(el) {
-  const target = parseInt(el.getAttribute('data-target'), 10);
-  const suffix = el.getAttribute('data-suffix') || '';
-  const duration = 1500;
-  let startTimestamp = null;
-
-  // Ease-out Quart mathematical function
-  const easeOutQuart = (t) => 1 - (--t) * t * t * t;
-
-  const step = (timestamp) => {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    const current = Math.floor(easeOutQuart(progress) * target);
-    
-    if (progress < 1) {
-      el.textContent = current;
-      window.requestAnimationFrame(step);
-    } else {
-      el.textContent = target + suffix;
-    }
-  };
-  
-  window.requestAnimationFrame(step);
-}
-
-const statsObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      statNums.forEach(countUp);
-      statsObserver.disconnect();
-    }
-  });
-}, { threshold: 0.5 });
-
-const statsStrip = document.querySelector('.stats-strip');
-if (statsStrip) statsObserver.observe(statsStrip);
-
-/* ============================================================
    BACK TO TOP BUTTON
    ============================================================ */
 const backToTop = document.getElementById('back-to-top');

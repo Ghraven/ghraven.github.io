@@ -215,15 +215,40 @@ code {
 /* ============================================================
    SCROLL ANIMATIONS
    ============================================================ */
-.animate-on-scroll {
+.js .animate-on-scroll {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
 }
 
-.animate-on-scroll.visible {
+.js .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Scroll-driven reveals: scrubbed by scroll position where supported,
+   IntersectionObserver fallback elsewhere */
+@supports (animation-timeline: view()) {
+  .js .animate-on-scroll,
+  .js .animate-on-scroll.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: reveal-on-scroll both;
+    animation-timeline: view();
+    animation-range: entry 10% entry 55%;
+  }
+}
+
+@keyframes reveal-on-scroll {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Dynamic transition delays are handled via JavaScript */
@@ -927,66 +952,10 @@ code {
   }
 }
 
-/* ============================================================
-   STATS STRIP
-   ============================================================ */
-.stats-strip {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--card-border);
-  border-bottom: 1px solid var(--card-border);
-  padding: 32px 24px;
-  transition: background var(--transition), border-color var(--transition);
-}
-
-.stats-container {
-  max-width: 700px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  flex: 1;
-}
-
 /* Static stat (no counter animation) */
-.stat-num--static {
-  font-family: 'Syne', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-}
 
-.stat-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-}
 
-.stat-label {
-  font-size: 0.75rem;
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  text-align: center;
-}
 
-.stat-divider {
-  width: 1px;
-  height: 48px;
-  background: var(--card-border);
-  flex-shrink: 0;
-}
 
 /* ============================================================
    ABOUT
@@ -1365,6 +1334,15 @@ code {
   border-color: rgba(0, 212, 255, 0.26);
 }
 
+[data-theme="light"] .project-visual {
+  border-color: rgba(15, 23, 42, 0.16);
+  box-shadow: 0 14px 28px -20px rgba(15, 23, 42, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="light"] .project-card:hover .project-visual {
+  border-color: rgba(2, 132, 199, 0.45);
+}
+
 .project-visual::before,
 .project-visual::after {
   content: '';
@@ -1668,11 +1646,51 @@ code {
   background: var(--bg-primary);
   border-top: 1px solid var(--card-border);
   text-align: center;
-  padding: 28px 24px;
+  padding: 36px 24px 28px;
   font-size: 0.8rem;
   color: var(--text-muted);
   font-family: 'JetBrains Mono', monospace;
   transition: background var(--transition), border-color var(--transition);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 22px;
+}
+
+.footer-links a,
+.footer-social a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: var(--accent);
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 10px;
+  color: var(--text-muted);
+}
+
+.footer-meta {
+  margin: 0;
+  opacity: 0.75;
 }
 
 /* ============================================================
@@ -1820,17 +1838,8 @@ code {
   }
 
   /* Stats */
-  .stats-container {
-    gap: 8px;
-  }
 
-  .stat-num {
-    font-size: 1.7rem;
-  }
 
-  .stat-label {
-    font-size: 0.65rem;
-  }
 
   /* Projects */
   .projects-grid {
@@ -1890,17 +1899,8 @@ code {
     font-size: 0.82rem;
   }
 
-  .stats-container {
-    flex-wrap: wrap;
-  }
 
-  .stat-divider {
-    display: none;
-  }
 
-  .stat-item {
-    width: calc(50% - 8px);
-  }
 
   .contact-item {
     padding: 14px 16px;
@@ -2385,9 +2385,6 @@ code {
     padding: 56px 0;
   }
 
-  .stat-num--static {
-    font-size: 1.7rem;
-  }
 }
 
 /* ============================================================
@@ -2711,9 +2708,10 @@ code {
     transition-duration: 0.01ms !important;
   }
 
-  .animate-on-scroll {
+  .js .animate-on-scroll {
     opacity: 1;
     transform: none;
+    animation: none;
   }
 
   .live-dot,
@@ -2803,9 +2801,6 @@ code {
   .hero-scroll-hint,
   .contact-email-cta,
   .back-to-top,
-  .stats-strip {
-    display: none !important;
-  }
 
   .section,
   .hero {

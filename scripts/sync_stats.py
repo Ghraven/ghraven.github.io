@@ -49,10 +49,6 @@ def apply(html: str, stats: dict) -> str:
     html = re.sub(r'(data-stat="repos"[^>]*>)\d+', rf"\g<1>{repos}", html)
     html = re.sub(r'(data-stat="stars"[^>]*>)\d+k\+', rf"\g<1>{stars}k+", html)
 
-    # Animated counters: data-stat="...-target" data-target="28"
-    html = re.sub(r'(data-stat="repos-target" data-target=")\d+(")', rf"\g<1>{repos}\g<2>", html)
-    html = re.sub(r'(data-stat="merged-target" data-target=")\d+(")', rf"\g<1>{merged}\g<2>", html)
-
     # Meta / OG / Twitter descriptions
     html = re.sub(r"repos with \d+k\+ combined stars", f"repos with {stars}k+ combined stars", html)
 
