@@ -4,6 +4,10 @@ Personal portfolio of **Rolly Calma** — Python developer and AI automation bui
 
 **Live site:** [ghraven.github.io](https://ghraven.github.io)
 
+## Proof gallery
+
+The GhravenLabs proof gallery lives at [ghravenlabs.github.io](https://ghravenlabs.github.io) and links the current public proof repos: Data Cleaner, WPM Trainer, Website QA Auditor, Mini-RAG, and Steam Free Games Tracker.
+
 ## Stack
 
 Plain HTML/CSS/JS, no framework, hosted on GitHub Pages. Dark/light theme with persisted preference, constellation hero canvas, scroll-reveal animations, and a contact modal.
