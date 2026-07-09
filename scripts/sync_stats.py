@@ -26,7 +26,11 @@ BADGES = {
 
 
 def fetch_readme() -> str:
-    with urllib.request.urlopen(README_URL, timeout=30) as resp:
+    request = urllib.request.Request(
+        README_URL,
+        headers={"User-Agent": "Ghraven-portfolio-stats-sync/1.0"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as resp:
         return resp.read().decode("utf-8")
 
 
@@ -50,7 +54,8 @@ def apply(html: str, stats: dict) -> str:
     html = re.sub(r'(data-stat="stars"[^>]*>)\d+k\+', rf"\g<1>{stars}k+", html)
 
     # Meta / OG / Twitter descriptions
-    html = re.sub(r"repos with \d+k\+ combined stars", f"repos with {stars}k+ combined stars", html)
+    html = re.sub(r"repos with \d+k\+ combined stars", f"repos totaling {stars}k+ stars", html)
+    html = re.sub(r"repos totaling \d+k\+ stars", f"repos totaling {stars}k+ stars", html)
 
     return html
 
