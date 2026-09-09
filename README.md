@@ -2,7 +2,7 @@
 
 Personal portfolio of **Rolly Calma** — Python developer and AI automation builder.
 
-**Live site:** [ghraven.github.io](https://ghraven.github.io)
+**Live site:** [rollycalma.com](https://rollycalma.com)
 
 ## Proof gallery
 
