@@ -29,4 +29,4 @@ python -m http.server 8000
 
 ## AI Assistance Transparency
 
-I use AI-assisted development tools while building and maintaining this site. All content and design decisions are reviewed and shipped by me.
+I use AI-assisted development tools while building and maintaining this site. All content, code, testing, and design decisions are reviewed and shipped by me.
